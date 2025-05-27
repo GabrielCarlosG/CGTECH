@@ -9,6 +9,13 @@
 
     <div class="container">
         <h2>Fale Conosco</h2>
+
+        {% if mensagem_sucesso %}
+            <div class="alert alert-success mt-2">
+                {{ mensagem_sucesso }}
+            </div>
+        {% endif %}
+        
         <p>Entre em contato conosco para dúvidas, sugestões ou parcerias.</p>
 
         <form action="{{ url_for('main.fale_conosco') }}" method="post">
@@ -34,13 +41,5 @@
 
             <button type="submit">Enviar</button>
         </form>
-
-        {% if mensagem_enviada %}
-            <p class="success">Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
-        {% endif %}
-
-         {% if error_message %}
-            <p class="error">{{ error_message }}</p>
-        {% endif %}
     </div>
     {% endblock %}
