@@ -1,4 +1,7 @@
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 class Config:
     """Configurações gerais da aplicação."""
@@ -15,7 +18,7 @@ class Config:
     SESSION_COOKIE_SECURE = True  # Ativar True quando estiver em produção
 
     # Banco de Dados
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///mensagens.db'
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///mensagens.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     #removendo a configuração de email, por enquanto!!!!!
